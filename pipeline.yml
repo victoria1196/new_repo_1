@@ -13,6 +13,5 @@ jobs:
     steps:
       - name: Run OX Security Scan to check for vulnerabilities
         with:
-          ox_api_key: ox_s9THdCBp0ZJ7Vf4nVSKykXi1Q1Ierrk5mPSj
-          ox_host_url: https://dev-api.ox.security/api/github-app/webhooks
+          ox_api_key: ox_LHvR6EX8bP8~U14YWbnjJKkfJFlmBlnnKG7f
         uses: oxsecurity/ox-security-scan@main
