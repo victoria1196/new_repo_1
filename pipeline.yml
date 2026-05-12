@@ -1,19 +1,23 @@
-name: Security Scan
-
+name: Example workflow with OX Security Scan
 on:
   push:
-    branches: [main]
+    branches:
+      - main
   pull_request:
-    branches: [main]
-
+    types: [opened, reopened, synchronize]
+    branches:
+      - main
 jobs:
-  scan:
+  security:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: OX Security Scan
-        uses: oxsecurity/ox-security-scan@main
+      - name: Run OX Security Scan to check for vulnerabilities
+        uses: oxsecurity/ox-security-scan@v1.0.0
         with:
           ox_api_key: ox_LHvR6EX8bP8~U14YWbnjJKkfJFlmBlnnKG7f
